@@ -81,7 +81,7 @@ app.get('/home', function(req, res) {
   // res.render(index2.html)
   if (req.session.loggedin) {
     // Output username
-    res.send('Welcome back, ' + req.session.username + '!');
+     res.render('index2')
   } else {
     // Not logged in
     res.send('Please login to view this page!');
