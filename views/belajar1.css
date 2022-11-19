@@ -1,0 +1,38 @@
+body{
+   background: url('https://images.wallpapersden.com/image/download/call-of-duty-dark-nikto_bGpqa2qUmZqaraWkpJRnamtlrWZpaWU.jpg'); 
+}
+form{
+    margin: 135px 0px 0px 490px ;
+}
+
+
+fieldset{
+    background-color: rgb(235, 235, 235);
+    width: 200px ;
+    height: 260px;
+    padding: 50px;
+
+}
+h1{
+    font-family: sans-serif;
+    margin-bottom: 30px;
+}
+input{
+    margin-bottom: 17px;
+    width: 100%;
+    height: 35px ;
+    border-radius: 5px;
+
+}
+
+.btn{
+    background-color: darkcyan;
+    text-decoration: none ;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 13px;
+    color: aliceblue;
+
+}
+
+
