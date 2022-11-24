@@ -72,6 +72,48 @@ app.post('/auth', function(req, res) {
     res.end();
   }
 });
+// add register 
+// add localhost:3000/register
+app.get('/register', function(req, res) {
+  // Render login.html
+  res.render('register.html');
+});
+app.post('/register', function(req, res) {
+
+  // var user_id= req.params.body.user_id
+  var user_name = req.body.name;
+  var user_email = req.body.email;
+  var user_password = req.body.password;
+
+  connection.connect(function(err) {
+    if (err) {
+      console.log(err);
+    };
+    // checking user already registered or no
+    connection.query(`SELECT * FROM table_user WHERE user_email = '${user_name}' AND user_password  = '${user_password}'`, function(err, result) {
+      if (err) {
+        console.log(err);
+      };
+      if (Object.keys(result).length > 0) {
+        res.json({ err: 'akun sudah ada ' });
+      } else {
+        //creating user page in userPage function
+
+        var sql = `INSERT INTO table_user ( user_name,user_email , user_password) VALUES ( '${user_name}', '${user_email}','${user_password}')`;
+        connection.query(sql, function(err, result) {
+          if (err) {
+            console.log(err);
+          } else {
+            // using userPage function for creating user page
+            res.render('login.html');
+
+          };
+        });
+
+      }
+    })
+  });
+});
 
 
 // router untuk balik ke home page ( index.html)
@@ -81,7 +123,7 @@ app.get('/home', function(req, res) {
   // res.render(index2.html)
   if (req.session.loggedin) {
     // Output username
-    res.send('Welcome back, ' + req.session.username + '!');
+     res.render('index2')
   } else {
     // Not logged in
     res.send('Please login to view this page!');
