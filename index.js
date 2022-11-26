@@ -6,10 +6,10 @@ const path = require('path');
 //koneksi kedatabase remotemysql.com
 const connection = mysql.createConnection({
   multipleStatements: true,
-  host: 'remotemysql.com',
-  user: 'byMWsNlDww',
-  password: 'PLJiPdPZ32',
-  database: 'byMWsNlDww'
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'user_login'
 });
 
 const app = express();
